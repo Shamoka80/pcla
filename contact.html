@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Poplar Christian Learning Academy information page." />
+  <meta name="description" content="Contact Poplar Christian Learning Academy for enrollment inquiries, availability, program details, and tour information." />
   <title>Poplar Christian Learning Academy | Contact</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -21,17 +21,156 @@
     </div>
     <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
       <div class="container nav-inner">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a><a href="locations.html">Locations</a><a href="parent-resources.html">Parent Resources</a><a href="contact.html">Contact</a>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a><a href="locations.html">Locations</a><a href="parent-resources.html">Parent Resources</a><a href="contact.html" aria-current="page">Contact</a>
         <a class="btn btn-call mobile-call" href="tel:+18432251004">Call (843) 225-1004</a>
       </div>
     </nav>
   </header>
-  <main id="main-content" class="section">
-    <div class="container card">
-      <h1>Contact</h1>
-      <p>Content in progress. Please call <a href="tel:+18432251004">(843) 225-1004</a> for enrollment inquiries, current availability, tours, and additional information.</p>
-    </div>
+
+  <main id="main-content">
+    <section class="section hero">
+      <div class="container">
+        <h1>Contact Poplar Christian Learning Academy</h1>
+        <p>Have questions about enrollment, availability, programs, or tour information? Contact PCLA and our team will be glad to help you take the next step.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+18432251004">Call (843) 225-1004</a>
+          <a class="btn btn-secondary" href="locations.html">View Locations</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Call or Message PCLA</h2>
+        <p>Families are encouraged to call for the fastest assistance with enrollment inquiries, current availability, program details, and tour information.</p>
+        <div class="grid cards-3 contact-options-grid">
+          <article class="card contact-option-card">
+            <h3>Main Enrollment Inquiries</h3>
+            <p>Call (843) 225-1004 for enrollment inquiries, availability, program details, and tour information.</p>
+            <a class="btn btn-primary" href="tel:+18432251004">Call (843) 225-1004</a>
+          </article>
+          <article class="card contact-option-card">
+            <h3>PCLA II Direct Contact</h3>
+            <p>Families interested in Poplar Christian Learning Academy II may call the location directly.</p>
+            <a class="btn btn-primary" href="tel:+18432250444">Call (843) 225-0444</a>
+          </article>
+          <article class="card contact-option-card">
+            <h3>Email</h3>
+            <p>For general questions, families may also contact PCLA by email.</p>
+            <a class="btn btn-secondary" href="mailto:poplarcla@gmail.com">poplarcla@gmail.com</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Send a Message</h2>
+        <p>Use the form below to send a message to Poplar Christian Learning Academy. For immediate assistance or enrollment availability, please call (843) 225-1004.</p>
+        <p class="contact-callout"><strong>Need immediate assistance?</strong> Please call <a href="tel:+18432251004">(843) 225-1004</a> for the fastest response.</p>
+
+        <form id="contact-form" class="card contact-form" novalidate>
+          <div id="contact-form-message" class="form-message" role="status" aria-live="polite"></div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="parent-name">Parent/Guardian Name <span aria-hidden="true">*</span></label>
+              <input id="parent-name" name="parentName" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+            <div class="form-field">
+              <label for="children-count">Number of Children <span aria-hidden="true">*</span></label>
+              <select id="children-count" name="childrenCount" required>
+                <option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="children-fieldset">
+            <legend>Children Information <span aria-hidden="true">*</span></legend>
+            <p class="field-help">Please enter each child&apos;s name and age.</p>
+            <div id="children-fields" class="children-fields"></div>
+          </fieldset>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="preferred-location">Preferred Location <span aria-hidden="true">*</span></label>
+              <select id="preferred-location" name="preferredLocation" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Poplar Christian Learning Academy — Remount Rd.</option>
+                <option>Poplar Christian Learning Academy II — Nazarene Street</option>
+                <option>Not Sure</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="inquiry-type">Inquiry Type <span aria-hidden="true">*</span></label>
+              <select id="inquiry-type" name="inquiryType" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Enrollment Inquiry</option>
+                <option>Tour Information</option>
+                <option>Program Question</option>
+                <option>General Question</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" autocomplete="off" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="contact-submit">Submit Message</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Visit or Call One of Our Locations</h2>
+        <div class="grid cards-2 locations-grid">
+          <article class="card location-card">
+            <h3>Poplar Christian Learning Academy</h3>
+            <p>1483 Remount Rd.<br />North Charleston, SC 29406<br />Phone: <a href="tel:+18432251004">(843) 225-1004</a></p>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=1483%20Remount%20Rd%20North%20Charleston%20SC%2029406" target="_blank" rel="noopener">Get Directions</a>
+          </article>
+          <article class="card location-card">
+            <h3>Poplar Christian Learning Academy II</h3>
+            <p>2522 Nazarene Street<br />North Charleston, SC 29406<br />Phone: <a href="tel:+18432250444">(843) 225-0444</a></p>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=2522%20Nazarene%20Street%20North%20Charleston%20SC%2029406" target="_blank" rel="noopener">Get Directions</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container card">
+        <h2>Operating Hours</h2>
+        <div class="hours-grid">
+          <div><h3>Monday–Friday</h3><p>7:00 AM–6:00 PM</p></div>
+          <div><h3>Saturday–Sunday</h3><p>Closed</p></div>
+        </div>
+        <p>Please call ahead for enrollment inquiries, tour information, and current availability.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card enrollment-cta">
+        <h2>Need Help Right Away?</h2>
+        <p>For enrollment inquiries, availability, program details, or tour information, calling is the fastest way to connect with Poplar Christian Learning Academy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+18432251004">Call (843) 225-1004</a>
+          <a class="btn btn-secondary" href="programs.html">View Programs</a>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="site-footer">
     <div class="container footer-grid">
       <div><h3>Locations</h3><p><strong>Poplar Christian Learning Academy</strong><br />1483 Remount Rd., North Charleston, SC 29406</p><p><strong>Poplar Christian Learning Academy II</strong><br />2522 Nazarene Street, North Charleston, SC 29406</p></div>
@@ -40,6 +179,7 @@
     <p class="scripture">“They will spring up like grass in a meadow, like poplar trees by flowing streams.” — Isaiah 44:4</p>
     <p class="copyright">© 2026 Poplar Christian Learning Academy. All rights reserved.</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
