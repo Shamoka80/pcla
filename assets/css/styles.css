@@ -24,6 +24,7 @@
   --transition-fast: 160ms ease;
   --transition-medium: 260ms ease;
   --container-max: 1180px;
+  --brand-logo-size: calc(56px * 1.35);
 
   --bg: var(--color-cream);
   --surface: var(--color-white);
@@ -40,7 +41,14 @@ body {
   margin: 0;
   font-family: "Nunito", "Segoe UI", Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, var(--color-cream), #fffdf8 26%, #fff);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 247, 230, 0.92),
+      rgba(255, 253, 248, 0.9) 26%,
+      rgba(255, 255, 255, 0.94)
+    ),
+    url("../images/home/poplar_background3.png") center / cover fixed no-repeat;
   line-height: 1.65;
 }
 
@@ -79,9 +87,11 @@ a {
 
 .header-top { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; }
 .brand { display: flex; align-items: center; gap: 0.8rem; color: var(--color-white); text-decoration: none; }
-.brand-logo { width: 56px; height: 56px; object-fit: contain; border-radius: 50%; background: #fff; }
-.brand-fallback { display: none; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-teal); color: #fff; font-weight: 700; }
-.brand-text strong { display: block; font-size: 1rem; }
+.brand-logo,
+.brand-fallback { width: var(--brand-logo-size); height: var(--brand-logo-size); }
+.brand-logo { object-fit: contain; border-radius: 50%; background: #fff; }
+.brand-fallback { display: none; place-items: center; border-radius: 50%; background: var(--color-teal); color: #fff; font-weight: 700; }
+.brand-text strong { display: block; font-size: 1rem; font-family: Papyrus, "Trebuchet MS", "Segoe UI", cursive; font-weight: 700; }
 .brand-text small { color: #d7eef3; }
 
 .menu-toggle {
@@ -332,12 +342,13 @@ main > section:not(.hero):nth-of-type(odd) {
   .about-story-grid { grid-template-columns: 1.4fr 1fr; }
 }
 
-@media (max-width: 900px) {
+
+@media (max-width: 768px) {
+  body,
   .hero {
     background-attachment: scroll;
   }
 }
-
 @media (max-width: 640px) {
   .brand-text small { display: none; }
   .brand-text strong { font-size: 0.92rem; }
