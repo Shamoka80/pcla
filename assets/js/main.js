@@ -23,14 +23,14 @@
 
   const GOOGLE_FORM_ACTION_URL = 'REPLACE_WITH_GOOGLE_FORM_ACTION_URL';
   const GOOGLE_FORM_ENTRY_IDS = {
-    parentName: 'entry.1209008278',
-    email: 'entry.1662912245',
-    phone: 'entry.972912350',
-    numberOfChildren: 'entry.74903763',
-    childrenInformation: 'entry.1984705636',
-    preferredLocation: 'entry.188894792',
-    inquiryType: 'entry.1026874148',
-    message: 'entry.452556170'
+    parentName: 'REPLACE_WITH_ENTRY_PARENT_NAME',
+    email: 'REPLACE_WITH_ENTRY_EMAIL',
+    phone: 'REPLACE_WITH_ENTRY_PHONE',
+    numberOfChildren: 'REPLACE_WITH_ENTRY_NUMBER_OF_CHILDREN',
+    childrenInformation: 'REPLACE_WITH_ENTRY_CHILDREN_INFORMATION',
+    preferredLocation: 'REPLACE_WITH_ENTRY_PREFERRED_LOCATION',
+    inquiryType: 'REPLACE_WITH_ENTRY_INQUIRY_TYPE',
+    message: 'REPLACE_WITH_ENTRY_MESSAGE'
   };
 
   const childrenCountSelect = document.getElementById('children-count');

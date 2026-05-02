@@ -46,7 +46,7 @@ This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, m
 - ✅ About page fully implemented with story, mission, leadership, expectations, and enrollment CTAs.
 - ✅ Parent Resources page fully implemented with resource links, family guidance, FAQ, and call-driven CTAs.
 - ✅ Contact page fully implemented with contact options, native form UX, and call-driven CTAs.
-- ✅ Contact form configured to submit to Google Forms using vanilla JavaScript (`fetch` with `mode: "no-cors"`), including mapped Google Form entry IDs and dynamic children field handling.
+- ✅ Contact form configured to submit to Google Forms using vanilla JavaScript (`fetch` with `mode: "no-cors"`) and dynamic children field handling.
 
 ## Next Recommended Step
 
