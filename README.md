@@ -39,15 +39,26 @@ This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, m
 
 ## Current Implementation Status
 
-- ✅ Global layout, header, navigation, mobile menu, and footer implemented.
-- ✅ Homepage fully implemented with all required sections and calls to action.
-- ✅ Programs page fully implemented with detailed classroom/program sections and enrollment CTAs.
-- ✅ Locations page fully implemented with both locations, operating hours, and call-driven guidance.
-- ✅ About page fully implemented with story, mission, leadership, expectations, and enrollment CTAs.
-- ✅ Parent Resources page fully implemented with resource links, family guidance, FAQ, and call-driven CTAs.
-- ✅ Contact page fully implemented with contact options, native form UX, and call-driven CTAs.
-- ✅ Contact form configured to submit to Google Forms using vanilla JavaScript (`fetch` with `mode: "no-cors"`) and dynamic children field handling.
+- ✅ All six core pages are implemented: `index.html`, `about.html`, `programs.html`, `locations.html`, `parent-resources.html`, and `contact.html`.
+- ✅ Global layout, header, navigation, mobile menu, and footer are implemented sitewide.
+- ✅ Contact page includes a native HTML form (no iframe) configured for Google Forms submission.
+- ✅ Contact form is handled with vanilla JavaScript using `fetch` with `mode: "no-cors"` and dynamic child field generation/serialization.
+- ✅ Site remains static (HTML/CSS/JS only) and compatible with GitHub Pages.
+
+## Image and Document Integration Notes
+
+- Expected logo path: `assets/images/logo/poplar_cla.png`
+- Suggested image directories:
+  - `assets/images/home/`
+  - `assets/images/about/`
+  - `assets/images/programs/`
+  - `assets/images/locations/`
+- Expected document paths:
+  - `assets/docs/supply-list.pdf`
+  - `assets/docs/daily-schedule.pdf`
+- Optimize final image and document assets before upload for performance.
+- Reference image filenames in HTML/CSS only after the files exist in the repository.
 
 ## Next Recommended Step
 
-Perform visual QA across pages and complete final content/image integration checks before launch.
+Upload final logo/documents/selected page images, then perform final cross-browser visual integration testing and a live contact-form submission test.
