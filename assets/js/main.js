@@ -21,93 +21,119 @@
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  const GOOGLE_FORM_ACTION_URL = 'REPLACE_WITH_GOOGLE_FORM_ACTION_URL';
+  const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeRxqGJbIOWbt7Z-Wb_sYaA6DTj1smxrAMXlcFZi53UfdmIyQ/formResponse';
   const GOOGLE_FORM_ENTRY_IDS = {
-    parentName: 'REPLACE_WITH_ENTRY_PARENT_NAME',
-    email: 'REPLACE_WITH_ENTRY_EMAIL',
-    phone: 'REPLACE_WITH_ENTRY_PHONE',
-    numberOfChildren: 'REPLACE_WITH_ENTRY_NUMBER_OF_CHILDREN',
-    childrenInformation: 'REPLACE_WITH_ENTRY_CHILDREN_INFORMATION',
-    preferredLocation: 'REPLACE_WITH_ENTRY_PREFERRED_LOCATION',
-    inquiryType: 'REPLACE_WITH_ENTRY_INQUIRY_TYPE',
-    message: 'REPLACE_WITH_ENTRY_MESSAGE'
+    parentName: 'entry.1209008278',
+    email: 'entry.1662912245',
+    phone: 'entry.972912350',
+    numberOfChildren: 'entry.74903763',
+    childrenInformation: 'entry.1984705636',
+    preferredLocation: 'entry.188894792',
+    inquiryType: 'entry.1026874148',
+    message: 'entry.452556170'
   };
 
-  const childrenCountSelect = document.getElementById('children-count');
+  const childrenCountInput = document.getElementById('children-count');
   const childrenFieldsContainer = document.getElementById('children-fields');
   const submitButton = document.getElementById('contact-submit');
   const formMessage = document.getElementById('contact-form-message');
-  const defaultSubmitText = submitButton ? submitButton.textContent : 'Submit Message';
+  if (!childrenCountInput || !childrenFieldsContainer || !submitButton || !formMessage) return;
 
+  const defaultSubmitText = submitButton.textContent || 'Submit Message';
   const SUCCESS_MESSAGE = 'Thank you. Your message has been successfully submitted. If you do not receive a response from us within 48 hours by phone or email, please contact our office at (843) 225-1004.';
   const ERROR_MESSAGE = 'We were unable to submit your message. Please call Poplar Christian Learning Academy directly at (843) 225-1004.';
 
   const setMessage = (type, text) => {
-    if (!formMessage) return;
     formMessage.className = 'form-message';
-    if (!type || !text) {
-      formMessage.textContent = '';
-      return;
-    }
+    formMessage.textContent = text || '';
+    if (!type || !text) return;
     formMessage.classList.add(type === 'success' ? 'is-success' : 'is-error');
-    formMessage.textContent = text;
+  };
+
+  const getChildrenCount = () => {
+    const parsed = Number.parseInt(childrenCountInput.value, 10);
+    const safeCount = Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
+    if (String(safeCount) !== childrenCountInput.value) {
+      childrenCountInput.value = String(safeCount);
+    }
+    return safeCount;
   };
 
   const renderChildrenFields = (count) => {
-    if (!childrenFieldsContainer) return;
+    const previousValues = new Map();
+    childrenFieldsContainer.querySelectorAll('.child-fields-row').forEach((row) => {
+      const index = row.dataset.childIndex;
+      const nameInput = row.querySelector('[data-child-name]');
+      const ageInput = row.querySelector('[data-child-age]');
+      previousValues.set(index, {
+        name: nameInput ? nameInput.value : '',
+        age: ageInput ? ageInput.value : ''
+      });
+    });
+
     childrenFieldsContainer.innerHTML = '';
 
     for (let i = 1; i <= count; i += 1) {
+      const previous = previousValues.get(String(i)) || { name: '', age: '' };
       const row = document.createElement('div');
       row.className = 'child-fields-row';
+      row.dataset.childIndex = String(i);
       row.innerHTML = `
         <div class="form-field">
           <label for="child-name-${i}">Child ${i} Name <span aria-hidden="true">*</span></label>
-          <input id="child-name-${i}" name="childName${i}" type="text" autocomplete="off" required />
+          <input id="child-name-${i}" name="childName${i}" data-child-name type="text" autocomplete="off" required value="${previous.name.replace(/"/g, '&quot;')}" />
         </div>
         <div class="form-field">
           <label for="child-age-${i}">Child ${i} Age <span aria-hidden="true">*</span></label>
-          <input id="child-age-${i}" name="childAge${i}" type="text" inputmode="numeric" autocomplete="off" required />
+          <input id="child-age-${i}" name="childAge${i}" data-child-age type="number" min="0" step="1" inputmode="numeric" autocomplete="off" required value="${previous.age.replace(/"/g, '&quot;')}" />
         </div>
       `;
       childrenFieldsContainer.appendChild(row);
     }
   };
 
-  const collectChildrenInfo = () => {
-    const count = Number(childrenCountSelect.value);
+  const collectChildrenInfo = (count) => {
     const details = [];
-
     for (let i = 1; i <= count; i += 1) {
       const nameInput = form.querySelector(`#child-name-${i}`);
       const ageInput = form.querySelector(`#child-age-${i}`);
-      details.push(`Child ${i}: ${nameInput.value.trim()}, Age: ${ageInput.value.trim()}`);
+      const name = nameInput ? nameInput.value.trim() : '';
+      const age = ageInput ? ageInput.value.trim() : '';
+      if (!name || !age) return null;
+      details.push(`Child ${i}: ${name}, Age: ${age}`);
     }
-
     return details.join('\n');
   };
 
-  renderChildrenFields(Number(childrenCountSelect.value));
+  renderChildrenFields(getChildrenCount());
 
-  childrenCountSelect.addEventListener('change', () => {
-    renderChildrenFields(Number(childrenCountSelect.value));
+  childrenCountInput.addEventListener('input', () => {
+    renderChildrenFields(getChildrenCount());
   });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     setMessage(null, '');
 
+    const childCount = getChildrenCount();
+    renderChildrenFields(childCount);
+
     if (!form.reportValidity()) return;
 
-    const childrenInformation = collectChildrenInfo();
+    const childrenInformation = collectChildrenInfo(childCount);
+    if (!childrenInformation) {
+      setMessage('error', ERROR_MESSAGE);
+      return;
+    }
+
     const payload = new FormData();
     payload.append(GOOGLE_FORM_ENTRY_IDS.parentName, form.parentName.value.trim());
     payload.append(GOOGLE_FORM_ENTRY_IDS.email, form.email.value.trim());
     payload.append(GOOGLE_FORM_ENTRY_IDS.phone, form.phone.value.trim());
-    payload.append(GOOGLE_FORM_ENTRY_IDS.numberOfChildren, form.childrenCount.value);
+    payload.append(GOOGLE_FORM_ENTRY_IDS.numberOfChildren, String(childCount));
     payload.append(GOOGLE_FORM_ENTRY_IDS.childrenInformation, childrenInformation);
-    payload.append(GOOGLE_FORM_ENTRY_IDS.preferredLocation, form.preferredLocation.value);
-    payload.append(GOOGLE_FORM_ENTRY_IDS.inquiryType, form.inquiryType.value);
+    payload.append(GOOGLE_FORM_ENTRY_IDS.preferredLocation, form.preferredLocation.value.trim());
+    payload.append(GOOGLE_FORM_ENTRY_IDS.inquiryType, form.inquiryType.value.trim());
     payload.append(GOOGLE_FORM_ENTRY_IDS.message, form.message.value.trim());
 
     submitButton.disabled = true;
@@ -119,16 +145,12 @@
         mode: 'no-cors',
         body: payload
       });
-
       setMessage('success', SUCCESS_MESSAGE);
       form.reset();
-      childrenCountSelect.value = '1';
+      childrenCountInput.value = '1';
       renderChildrenFields(1);
     } catch (error) {
       setMessage('error', ERROR_MESSAGE);
-      submitButton.disabled = false;
-      submitButton.textContent = defaultSubmitText;
-      return;
     }
 
     submitButton.disabled = false;
