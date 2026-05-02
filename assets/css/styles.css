@@ -121,3 +121,53 @@ a { color: var(--primary); }
 .enrollment-cta {
   text-align: left;
 }
+
+.locations-grid {
+  align-items: stretch;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.location-address {
+  margin: 0;
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.4rem;
+}
+
+.locations-note {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.hours-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hours-grid h3 {
+  margin-bottom: 0.2rem;
+}
+
+.hours-grid p {
+  margin: 0;
+}
+
+.contact-guidance-grid {
+  margin-top: 1rem;
+}
+
+@media (min-width: 800px) {
+  .hours-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
