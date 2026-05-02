@@ -43,8 +43,9 @@ This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, m
 - ✅ Homepage fully implemented with all required sections and calls to action.
 - ✅ Programs page fully implemented with detailed classroom/program sections and enrollment CTAs.
 - ✅ Locations page fully implemented with both locations, operating hours, and call-driven guidance.
-- ✅ Placeholder pages remain for About, Parent Resources, and Contact.
+- ✅ About page fully implemented with story, mission, leadership, expectations, and enrollment CTAs.
+- ✅ Placeholder pages remain for Parent Resources and Contact.
 
 ## Next Recommended Page
 
-`about.html` is the recommended next page to fully implement.
+`parent-resources.html` is the recommended next page to fully implement.
