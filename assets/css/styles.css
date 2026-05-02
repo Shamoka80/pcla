@@ -64,3 +64,60 @@ a { color: var(--primary); }
   .cards-3 { grid-template-columns: repeat(3, 1fr); }
   .cards-2, .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+.nav-inner a[aria-current="page"] {
+  color: var(--secondary);
+}
+
+.programs-stack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.program-card {
+  padding: 1.4rem;
+}
+
+.program-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.age-badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  background: #f6f3ea;
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.program-lists h3 {
+  margin-bottom: 0.35rem;
+}
+
+.program-lists ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.program-lists li {
+  margin-bottom: 0.3rem;
+}
+
+.program-benefits {
+  margin-top: 1rem;
+}
+
+.mini-card {
+  padding: 1rem;
+}
+
+.enrollment-cta {
+  text-align: left;
+}
