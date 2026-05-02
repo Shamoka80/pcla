@@ -47,6 +47,7 @@ body {
 a {
   color: var(--color-teal);
   transition: color var(--transition-fast);
+  overflow-wrap: anywhere;
 }
 
 .container { width: min(var(--container-max), 92%); margin: 0 auto; }
@@ -139,6 +140,16 @@ a {
 }
 
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.btn:focus-visible,
+.menu-toggle:focus-visible,
+.nav-inner a:focus-visible,
+.site-footer a:focus-visible,
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 3px solid var(--color-sunshine);
+  outline-offset: 2px;
+}
 
 .btn-primary, .btn-call { background: var(--color-teal); color: #fff; }
 .btn-primary:hover, .btn-call:hover { background: var(--color-teal-dark); color: #fff; }
@@ -304,6 +315,11 @@ a {
   .cards-2, .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .hours-grid, .form-grid, .child-fields-row { grid-template-columns: repeat(2, 1fr); }
   .about-story-grid { grid-template-columns: 1.4fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .brand-text small { display: none; }
+  .brand-text strong { font-size: 0.92rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
