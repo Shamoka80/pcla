@@ -60,7 +60,7 @@ a {
 
 .container { width: min(var(--container-max), 92%); margin: 0 auto; }
 .section { padding: clamp(2.5rem, 5vw, 4rem) 0; }
-.alt { background: linear-gradient(165deg, var(--color-sky), var(--color-lavender)); }
+.alt { background: var(--color-lavender); }
 
 .card {
   background: var(--surface);
@@ -196,6 +196,20 @@ a {
 .hero p { max-width: 65ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1rem 0; }
 .hero-phone { font-weight: 700; }
+
+.home-hero h1 { font-size: calc(clamp(1.9rem, 4vw, 2.8rem) * 1.15); }
+
+main > section:not(.hero) {
+  position: relative;
+}
+
+main > section:not(.hero):nth-of-type(even) {
+  background: var(--color-cream);
+}
+
+main > section:not(.hero):nth-of-type(odd) {
+  background: transparent;
+}
 
 .grid { display: grid; gap: 1rem; }
 .section > .container {
