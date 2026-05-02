@@ -1,0 +1,11 @@
+# Accessibility Checklist (WCAG 2.1 AA-oriented)
+- [x] Semantic regions used (`header`, `nav`, `main`, `section`, `footer`).
+- [x] One `h1` per page.
+- [x] Keyboard-focus visible styles (`:focus-visible`).
+- [x] Skip link included.
+- [x] Form labels implemented.
+- [x] Minimum 44px touch targets for key interactive controls.
+- [x] Reduced-motion guard implemented.
+- [x] Mobile nav toggle uses `aria-expanded` and `aria-controls`.
+- [ ] Final alt-text verification pending until image assets are supplied.
+- [ ] Final contrast QA should be completed with real logo/images in place.
