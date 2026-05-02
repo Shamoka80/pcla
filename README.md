@@ -1,40 +1,48 @@
-# Poplar Christian Learning Academy (PCLA) Website Rebuild
+# Poplar Christian Learning Academy Website Rebuild
 
-Modern static website rebuild for Poplar Christian Learning Academy, designed for clear family communication, mobile usability, and GitHub Pages hosting.
+A lightweight, static, GitHub Pages-friendly website rebuild for Poplar Christian Learning Academy (PCLA), focused on clear family information and call-driven enrollment inquiries.
 
-## Project Structure
+## File Structure
 
-- `index.html` (fully implemented home page)
-- `about.html` (placeholder)
-- `programs.html` (placeholder)
-- `locations.html` (placeholder)
-- `parent-resources.html` (placeholder)
-- `contact.html` (placeholder)
-- `assets/css/styles.css`
-- `assets/js/main.js`
-- `assets/images/` (organized content folders)
-- `assets/docs/`
+```
+/
+├── README.md
+├── index.html
+├── about.html
+├── programs.html
+├── locations.html
+├── parent-resources.html
+├── contact.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── main.js
+│   ├── images/
+│   │   ├── logo/
+│   │   ├── home/
+│   │   ├── about/
+│   │   ├── programs/
+│   │   └── locations/
+│   └── docs/
+```
 
 ## Local Preview
 
-Because this is a static site, you can preview locally by opening `index.html` directly in a browser.
-
-Optional local server command:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
+1. Clone the repository.
+2. Open `index.html` directly in your browser, or use a simple static server.
+3. Confirm navigation, responsive layout, and mobile menu behavior.
 
 ## GitHub Pages Hosting
 
-This project is GitHub Pages friendly: all assets are referenced with relative paths, and no build step is required.
+This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, making it ready for GitHub Pages hosting from the repository root.
 
 ## Current Implementation Status
 
-- ✅ Home page content and layout completed.
-- ✅ Shared header, responsive navigation, and footer completed.
-- ✅ Placeholder shells created for About, Programs, Locations, Parent Resources, and Contact pages.
-- ✅ Lightweight vanilla JavaScript mobile menu behavior added.
-- 🔜 Full content implementation for the remaining pages is in progress.
+- ✅ Global layout, header, navigation, mobile menu, and footer implemented.
+- ✅ Homepage fully implemented with all required sections and calls to action.
+- ✅ Placeholder pages created for About, Programs, Locations, Parent Resources, and Contact.
+
+## Next Recommended Page
+
+`programs.html` should be implemented next with complete classroom/program detail content.
