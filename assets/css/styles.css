@@ -330,19 +330,24 @@ main > section:not(.hero):nth-of-type(odd) {
 
 .photo-card--tilt-left { transform: rotate(-2deg); }
 .photo-card--tilt-right { transform: rotate(2deg); }
+.photo-card--tilt-soft { transform: rotate(-1deg); }
 
 .about-family-figure { margin-top: 1rem; }
 .about-family-figure .photo-card { max-width: min(520px, 100%); }
 .programs-photo-strip { display: grid; gap: 1rem; margin-top: 1rem; }
+.photo-row { display: grid; gap: 1rem; align-items: start; }
+.programs-photo-row { margin-top: 1rem; }
 .homepage-photo { margin-top: 1rem; max-width: min(360px, 100%); }
 
 @media (min-width: 800px) {
   .programs-photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .photo-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
   .photo-card--tilt-left,
-  .photo-card--tilt-right {
+  .photo-card--tilt-right,
+  .photo-card--tilt-soft {
     transform: none;
   }
 }
@@ -425,5 +430,6 @@ main > section:not(.hero):nth-of-type(odd) {
   .btn:hover,
   .photo-card,
   .photo-card--tilt-left,
-  .photo-card--tilt-right { transform: none !important; }
+  .photo-card--tilt-right,
+  .photo-card--tilt-soft { transform: none !important; }
 }
