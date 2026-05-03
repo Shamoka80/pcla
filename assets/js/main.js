@@ -59,6 +59,33 @@
     return safeCount;
   };
 
+  const createField = ({ index, kind, value }) => {
+    const formField = document.createElement('div');
+    formField.className = 'form-field';
+
+    const label = document.createElement('label');
+    const inputId = `child-${kind}-${index}`;
+    label.setAttribute('for', inputId);
+    label.append(`Child ${index} ${kind === 'name' ? 'Name' : 'Age'} `);
+
+    const requiredMark = document.createElement('span');
+    requiredMark.setAttribute('aria-hidden', 'true');
+    requiredMark.textContent = '*';
+    label.appendChild(requiredMark);
+
+    const input = document.createElement('input');
+    input.id = inputId;
+    input.name = `child${kind === 'name' ? 'Name' : 'Age'}${index}`;
+    input.setAttribute(kind === 'name' ? 'data-child-name' : 'data-child-age', '');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.required = true;
+    input.value = value;
+
+    formField.append(label, input);
+    return formField;
+  };
+
   const renderChildrenFields = (count) => {
     const previousValues = new Map();
     childrenFieldsContainer.querySelectorAll('.child-fields-row').forEach((row) => {
@@ -71,23 +98,17 @@
       });
     });
 
-    childrenFieldsContainer.innerHTML = '';
+    childrenFieldsContainer.replaceChildren();
 
     for (let i = 1; i <= count; i += 1) {
       const previous = previousValues.get(String(i)) || { name: '', age: '' };
       const row = document.createElement('div');
       row.className = 'child-fields-row';
       row.dataset.childIndex = String(i);
-      row.innerHTML = `
-        <div class="form-field">
-          <label for="child-name-${i}">Child ${i} Name <span aria-hidden="true">*</span></label>
-          <input id="child-name-${i}" name="childName${i}" data-child-name type="text" autocomplete="off" required value="${previous.name.replace(/"/g, '&quot;')}" />
-        </div>
-        <div class="form-field">
-          <label for="child-age-${i}">Child ${i} Age <span aria-hidden="true">*</span></label>
-          <input id="child-age-${i}" name="childAge${i}" data-child-age type="number" min="0" step="1" inputmode="numeric" autocomplete="off" required value="${previous.age.replace(/"/g, '&quot;')}" />
-        </div>
-      `;
+      row.append(
+        createField({ index: i, kind: 'name', value: previous.name }),
+        createField({ index: i, kind: 'age', value: previous.age })
+      );
       childrenFieldsContainer.appendChild(row);
     }
   };

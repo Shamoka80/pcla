@@ -215,42 +215,33 @@ ENTRY_MESSAGE=entry.888888888
 
 ### D) Native website form wiring pattern (no iframe)
 
-Use native HTML form (example template):
+The live website implementation uses a native HTML contact form plus vanilla JavaScript in `assets/js/main.js`.
 
-```html
-<form id="contactForm" method="POST" action="GOOGLE_FORM_ACTION_URL" target="hidden_iframe" novalidate>
-  <input name="ENTRY_PARENT_NAME" required>
-  <input type="email" name="ENTRY_EMAIL" required>
-  <input name="ENTRY_PHONE" required>
-  <input name="ENTRY_NUMBER_OF_CHILDREN" required>
-  <textarea name="ENTRY_CHILDREN_INFORMATION" required></textarea>
+- Submission is sent with `fetch(...)` using `method: "POST"` and `mode: "no-cors"`.
+- Google Forms field IDs are appended to a `FormData` payload.
+- There is no visible Google Form iframe.
+- There is no hidden iframe submission pattern.
+- Child rows are combined into one `Children Information` value before submit.
 
-  <select name="ENTRY_PREFERRED_LOCATION" required>
-    <option value="">Select...</option>
-    <option>Poplar Christian Learning Academy — Remount Rd.</option>
-    <option>Poplar Christian Learning Academy II — Nazarene Street</option>
-    <option>Not Sure</option>
-  </select>
+Implementation-aligned example:
 
-  <select name="ENTRY_INQUIRY_TYPE" required>
-    <option value="">Select...</option>
-    <option>Enrollment Inquiry</option>
-    <option>Tour Information</option>
-    <option>Program Question</option>
-    <option>General Question</option>
-  </select>
+```javascript
+const payload = new FormData();
+payload.append('entry.1209008278', form.parentName.value.trim());
+payload.append('entry.1662912245', form.email.value.trim());
+payload.append('entry.972912350', form.phone.value.trim());
+payload.append('entry.74903763', String(childCount));
+payload.append('entry.1984705636', childrenInformation);
+payload.append('entry.188894792', form.preferredLocation.value.trim());
+payload.append('entry.1026874148', form.inquiryType.value.trim());
+payload.append('entry.452556170', form.message.value.trim());
 
-  <textarea name="ENTRY_MESSAGE" required></textarea>
-  <button type="submit">Send Message</button>
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-<div id="successMessage" hidden>
-  Thank you. Your message has been successfully submitted. If you do not receive a response from us within 48 hours by phone or email, please contact our office at (843) 225-1004.
-</div>
+await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeRxqGJbIOWbt7Z-Wb_sYaA6DTj1smxrAMXlcFZi53UfdmIyQ/formResponse', {
+  method: 'POST',
+  mode: 'no-cors',
+  body: payload
+});
 ```
-
-> Note: Hidden iframe is only for background submission/UX flow. The visible form is native HTML; no embedded Google Form iframe is used.
 
 ---
 

@@ -47,18 +47,18 @@ This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, m
 
 ## Image and Document Integration Notes
 
-- Expected logo path: `assets/images/logo/poplar_cla.png`
+- Logo path: `assets/images/logo/Poplar_CLA.png`
 - Suggested image directories:
   - `assets/images/home/`
   - `assets/images/about/`
   - `assets/images/programs/`
   - `assets/images/locations/`
 - Expected document paths:
-  - `assets/docs/supply-list.pdf`
-  - `assets/docs/daily-schedule.pdf`
+  - `assets/docs/pcla_supply_list.pdf`
+  - `assets/docs/pcla_daily_schedule1.pdf`
 - Optimize final image and document assets before upload for performance.
 - Reference image filenames in HTML/CSS only after the files exist in the repository.
 
 ## Next Recommended Step
 
-Upload final logo/documents/selected page images, then perform final cross-browser visual integration testing and a live contact-form submission test.
+Confirm uploaded logo/documents/selected page images remain correctly linked, then perform final cross-browser visual integration testing and a live contact-form submission test.
