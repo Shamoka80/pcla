@@ -273,17 +273,78 @@ main > section:not(.hero):nth-of-type(odd) {
 .about-highlight li { margin-bottom: 0.35rem; }
 .about-values-grid, .about-expect-grid, .about-location-grid, .about-leadership-grid { margin-top: 1rem; }
 .about-leader-card { text-align: center; }
-.leader-initials {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 0.8rem;
-  background: var(--color-sunshine-soft);
-  border: 1px solid #edcb39;
-  color: var(--color-teal-deep);
-  font-weight: 700;
+
+
+.leader-photo {
+  width: min(180px, 70vw);
+  margin: 0 auto 0.9rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.leader-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+}
+
+.image-position-top { object-position: center top; }
+.image-position-center { object-position: center center; }
+.image-position-lower { object-position: center 68%; }
+
+.photo-card {
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 0.45rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-lg) - 0.35rem);
+}
+
+.child-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.child-photo--cover img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.photo-card--tilt-left { transform: rotate(-2deg); }
+.photo-card--tilt-right { transform: rotate(2deg); }
+
+.about-family-figure { margin-top: 1rem; }
+.about-family-figure .photo-card { max-width: min(520px, 100%); }
+.programs-photo-strip { display: grid; gap: 1rem; margin-top: 1rem; }
+.homepage-photo { margin-top: 1rem; max-width: min(360px, 100%); }
+
+@media (min-width: 800px) {
+  .programs-photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .photo-card--tilt-left,
+  .photo-card--tilt-right {
+    transform: none;
+  }
 }
 
 .resource-card .btn, .contact-option-card .btn { margin-top: auto; width: fit-content; }
@@ -361,5 +422,8 @@ main > section:not(.hero):nth-of-type(odd) {
     scroll-behavior: auto !important;
   }
   .card:hover,
-  .btn:hover { transform: none; }
+  .btn:hover,
+  .photo-card,
+  .photo-card--tilt-left,
+  .photo-card--tilt-right { transform: none !important; }
 }
