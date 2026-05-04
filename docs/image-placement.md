@@ -21,31 +21,42 @@
 - `lilman_coloring.avif`
 - `lilman_wavinghello.avif`
 
-## Images placed by page
-- `about.html`
-  - Leadership cards: `owner1.avif`, `owner2.avif`, `director1.avif`
-  - “A Heart for Families” section (below existing two-column story/highlight pair): `familyimage.avif`
-- `programs.html`
-  - Added controlled photo strip after the “Early Learning Rooted in Care, Faith, and Growth” card: `kids_coloring.avif`, `kids_outside2.avif`
-- `index.html`
-  - Added one supporting image under “Rooted in Faith, Focused on Growth”: `lilman_wavinghello.avif`
+## Placement map (every verified image)
 
-## Intentionally not used
-- `assets/images/programs/3yo_playing.avif`
-- `assets/images/programs/babgirl_redbow.avif`
-- `assets/images/programs/babygirl_bluey.avif`
-- `assets/images/programs/babyboy_blueyshirt.avif`
-- `assets/images/programs/kids_outside.avif`
-- `assets/images/programs/kids_outside3.avif`
-- `assets/images/programs/lilbaby.avif`
-- `assets/images/programs/lilman_coloring.avif`
+### `about.html`
+- `owner1.avif` → Leadership card for Mr. Shamon Aiken.
+- `owner2.avif` → Leadership card for Mrs. Marquita Aiken.
+- `director1.avif` → Leadership card for Mrs. Natasha Jamison.
+- `familyimage.avif` → Family visual directly under “A Heart for Families.”
 
-Reason: not required to meet page-by-page limits and omitted to prevent crowding/compression of existing text-first layouts.
+### `index.html`
+- `lilman_wavinghello.avif` → Homepage supporting image under “Rooted in Faith, Focused on Growth.”
 
-## Cropping/object-position adjustments
-- Leadership portraits use `.leader-photo img` with `aspect-ratio: 4 / 5`, `object-fit: cover`, and per-image position utilities where needed (`.image-position-top`, `.image-position-center`).
-- Child images default to `object-fit: contain` via `.child-photo img` to preserve full subjects and avoid incomplete figures.
-- A single optional gentle crop pattern is used only on one programs image with `.child-photo--cover` (`aspect-ratio: 4 / 3`, centered).
+### `programs.html`
+- `kids_coloring.avif` → Intro photo strip after “Early Learning Rooted in Care, Faith, and Growth.”
+- `kids_outside2.avif` → Intro photo strip after “Early Learning Rooted in Care, Faith, and Growth.”
+- `3yo_playing.avif` → “A Look Inside PCLA” photo row.
+- `babgirl_redbow.avif` → “A Look Inside PCLA” photo row.
+- `babygirl_bluey.avif` → “A Look Inside PCLA” photo row.
+- `babyboy_blueyshirt.avif` → “A Look Inside PCLA” photo row.
+- `kids_outside.avif` → “A Look Inside PCLA” photo row.
+- `kids_outside3.avif` → “A Look Inside PCLA” photo row.
+- `lilbaby.avif` → “A Look Inside PCLA” photo row.
+- `lilman_coloring.avif` → “A Look Inside PCLA” photo row.
 
-## Unresolved owner-confirmation items
-- None. Filenames mapped directly to the existing three named leadership cards and family image placement request.
+## Images used more than once
+- None.
+
+## Unused images and reason
+- None. Every verified, usable uploaded image is used at least once.
+
+## Cropping/object-position safeguards
+- Child imagery uses natural display (`.child-photo img`) with `height: auto` and `object-fit: contain` to preserve full subjects.
+- Program imagery in visual strips/rows avoids fixed-height cropping.
+- Leadership portraits use controlled framing via `.leader-photo img` (`aspect-ratio: 4 / 5`, `object-fit: cover`, `object-position: center top`) with targeted position utility classes where needed.
+
+## Owner-confirmation items
+- Leadership filenames mapped directly to the existing named owner/director cards:
+  - `owner1.avif` → Mr. Shamon Aiken
+  - `owner2.avif` → Mrs. Marquita Aiken
+  - `director1.avif` → Mrs. Natasha Jamison
