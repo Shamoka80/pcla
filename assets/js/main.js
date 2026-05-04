@@ -40,7 +40,7 @@
   if (!childrenCountInput || !childrenFieldsContainer || !submitButton || !formMessage) return;
 
   const defaultSubmitText = submitButton.textContent || 'Submit Message';
-  const SUCCESS_MESSAGE = 'Thank you. Your message has been successfully submitted. If you do not receive a response from us within 48 hours by phone or email, please contact our office at (843) 225-1004.';
+  const SUCCESS_MESSAGE = 'Thank you. Your enrollment inquiry has been submitted. Please call (843) 225-1004 to schedule a meet-and-greet tour and confirm current availability.';
   const ERROR_MESSAGE = 'We were unable to submit your message. Please call Poplar Christian Learning Academy directly at (843) 225-1004.';
 
   const setMessage = (type, text) => {

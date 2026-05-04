@@ -1,0 +1,4 @@
+- Staff/teacher section deferred until names, roles, photos, and approved bios are provided.
+- Testimonials section deferred until owner-approved testimonials are provided.
+- Building images for Locations page pending future upload.
+- Pricing/application fee/deposit details require owner confirmation before publishing.
