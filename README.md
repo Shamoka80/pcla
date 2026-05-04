@@ -53,7 +53,7 @@ This project uses plain HTML, CSS, and vanilla JavaScript with relative paths, m
   - `assets/images/about/`
   - `assets/images/programs/`
   - `assets/images/locations/`
-- Expected document paths:
+- Resource document paths:
   - `assets/docs/pcla_supply_list.pdf`
   - `assets/docs/pcla_daily_schedule1.pdf`
 - Optimize final image and document assets before upload for performance.
