@@ -266,7 +266,7 @@ await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeRxqGJbIOWbt7Z-Wb_sYaA6DT
 1. Submit a complete test inquiry from the website form.
 2. Confirm the user sees exact success text:
 
-> Thank you. Your message has been successfully submitted. If you do not receive a response from us within 48 hours by phone or email, please contact our office at (843) 225-1004.
+> Thank you. Your enrollment inquiry has been submitted. Please call (843) 225-1004 to schedule a meet-and-greet tour and confirm current availability.
 
 3. Confirm a new row appears in linked Google Sheet.
 4. Confirm all columns contain the expected values.
