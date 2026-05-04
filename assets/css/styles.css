@@ -44,9 +44,9 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(255, 247, 230, 0.92),
-      rgba(255, 253, 248, 0.9) 26%,
-      rgba(255, 255, 255, 0.94)
+      rgba(255, 247, 230, 0.84),
+      rgba(255, 253, 248, 0.82) 26%,
+      rgba(255, 255, 255, 0.88)
     ),
     url("../images/home/poplar_background3.png") center / cover fixed no-repeat;
   line-height: 1.65;
@@ -189,7 +189,7 @@ a {
   background:
     radial-gradient(circle at 10% 20%, rgba(250, 204, 21, 0.35), transparent 40%),
     radial-gradient(circle at 90% 75%, rgba(124, 58, 237, 0.12), transparent 36%),
-    linear-gradient(145deg, rgba(224, 247, 250, 0.9), rgba(255, 247, 230, 0.92)),
+    linear-gradient(145deg, rgba(224, 247, 250, 0.82), rgba(255, 247, 230, 0.84)),
     url("../images/home/poplar_background3.png") center / cover fixed no-repeat;
 }
 .hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.2; }
